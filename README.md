@@ -17,7 +17,6 @@ Aplikasi Go yang mengintegrasikan dengan 3 endpoint eksternal untuk mengambil da
    ```bash
    go mod tidy
    ```
-
 3. **Setup environment variables**
    ```bash
    cp .env.example .env

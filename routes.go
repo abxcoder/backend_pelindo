@@ -2,22 +2,16 @@ package main
 
 import "github.com/gin-gonic/gin"
 
-// SetupRoutes - Setup all API routes
 func SetupRoutes(router *gin.Engine, controller *Controller) {
-	// API v1 group
 	v1 := router.Group("/api/v1")
 	{
-		// Countries endpoints
 		v1.GET("/negaras", controller.GetNegaras)
 
-		// Ports endpoints - dengan query parameter id_negara
 		v1.GET("/pelabuhans", controller.GetPelabuhans)
 
-		// Goods endpoints - dengan query parameter id_pelabuhan
 		v1.GET("/barangs", controller.GetBarangs)
 	}
 
-	// Health check endpoint
 	router.GET("/health", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"status":  "success",
@@ -25,8 +19,7 @@ func SetupRoutes(router *gin.Engine, controller *Controller) {
 			"version": "1.0.0",
 		})
 	})
-
-	// Root endpoint
+	
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"status":  "success",
